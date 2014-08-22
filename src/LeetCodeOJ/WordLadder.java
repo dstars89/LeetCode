@@ -47,22 +47,25 @@ public class WordLadder {
 	    {
 	        String cur = queue.poll();
 	        lastNum--;
+	        StringBuilder replace = new StringBuilder(cur);
 	        for(int i=0;i<cur.length();i++)
 	        {
-	            char[] charCur = cur.toCharArray();
+	        	char old = replace.charAt(i);
 	            for(char c='a';c<='z';c++)
 	            {
-	                charCur[i] = c;
-	                String temp = new String(charCur);
-	                if(temp.equals(end))
+	            	if(c==replace.charAt(i))continue;//itself
+	            	replace.setCharAt(i, c);
+	            	String replaced = replace.toString();
+	                if(replaced.equals(end))
 	                    return level+1;
-	                if(dict.contains(temp) && !visited.contains(temp))
+	                if(dict.contains(replaced) && !visited.contains(replaced))
 	                {
 	                    curNum++;
-	                    queue.offer(temp);
-	                    visited.add(temp);
+	                    queue.offer(replaced);
+	                    visited.add(replaced);
 	                }
 	            }
+	            replace.setCharAt(i, old);
 	        }
 	        if(lastNum==0)
 	        {
