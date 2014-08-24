@@ -1,6 +1,5 @@
 package LeetCodeOJ;
 
-import java.util.ArrayList;
 
 /*Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
 
