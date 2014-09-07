@@ -8,7 +8,7 @@ public class Solution {
 		if(s1==null||s2==null)return 0;
 		int res=0;
 		int m=s1.length(),n=s2.length();
-		int [][] dp=new int[n+1][m+1];
+		int [][] dp=new int[n][m];
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
 				if(s1.charAt(j)==s2.charAt(i)){
